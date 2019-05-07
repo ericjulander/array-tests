@@ -7,10 +7,24 @@ function condenseArray(data) {
     // goes though and colapses the objects into arrays
     return data.map(function (info) {
         return [info.key, info.value];
-    }).reduce(function (a, b, index) {
+    }).reduce(function (a, b) {
         //takes the arrays and throws it into an object matching each arrays key with its value
-        a[b[0]] = b[1];
+        var keyItem = a[b[0]];
+        // determines if there is already a value in that key.
+        // if there is no existing value, it inputs the matching item
+        // if a value already exists it appends this item to an array with the other existing value(s); 
+        if (keyItem !== undefined) {
+            if (Array.isArray(keyItem)) {
+                a[b[0]].push(b[1]);
+            } else {
+                a[b[0]] = [a[b[0]], b[1]];
+            }
+
+        } else {
+            a[b[0]] = b[1]
+        }
         return a;
+
     }, {});
 }
 
@@ -56,5 +70,48 @@ function condenseArray(data) {
           color: 'white' 
         }
     */
+
+
+    //EXERCISE 2
+    var randomData = [{
+            key: "name",
+            value: "jared"
+        },
+        {
+            key: "age",
+            value: "old",
+        },
+        {
+            key: "food",
+            value: "bacon"
+        },
+        {
+            key: "food",
+            value: "pizza"
+        },
+        {
+            key: "pet",
+            value: "dog"
+        },
+        {
+            key: "food",
+            value: "wings"
+        },
+        {
+            key: "pet",
+            value: "fish"
+        }
+    ];
+
+    var collapsedRandomData = condenseArray(randomData);
+    console.log(collapsedRandomData);
+    /* OUTPUT: 
+       { 
+         name: 'jared',
+         age: 'old',
+         food: [ 'bacon', 'pizza', 'wings' ],
+         pet: [ 'dog', 'fish' ] 
+        }
+     */
 
 })();
