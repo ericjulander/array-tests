@@ -1,3 +1,5 @@
+// EXERCISE 1
+
 /*
  * Takes an array of objects containing a "key" and "value" property and condenses it into one object
  */
@@ -12,6 +14,10 @@ function condenseArray(data) {
     }, {});
 }
 
+/*
+ * MAIN FUNCTION
+ * Creates the car info, condenses it, and then prints it to the console
+ */
 (function () {
     // THE INFORMATION TO CONDENSE
     var carInfo = [{
@@ -41,5 +47,14 @@ function condenseArray(data) {
     if (collapsedData) delete collapsedData["msrp"];
     //LOG THE DATA
     console.log(collapsedData);
+
+    /* OUTPUT: 
+        {
+          year: '2016',
+          make: 'Porsche',
+          model: '911 R',
+          color: 'white' 
+        }
+    */
 
 })();
