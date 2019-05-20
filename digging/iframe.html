@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Digging Deeper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .featherlight-next,
+        .featherlight-previous {
+            height: calc(100% - 50px) !important;
+        }
+
+        div.featherlight-content {
+            height: 75% !important;
+        }
+
+        #videoFrameLoader {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="videoFrameLoader" class="externalContent">
+        <div class="loader"></div>
+        <p id="loadingSign">Loading</p>
+    </div>
+    <script id="diggingDeeperTemplate" src="digging-deeper-renderer.js" type="text/javascript"> </script>
+</body>
+
+</html>
